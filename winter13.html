@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+    <head>
+ 
+        <title>Winter 13</title>
+       <link href="http://saasmath.seattleacademy.org/css/bootstrap.css" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+ 
+        <script>
+             $(document).ready(function() {
+ 
+        $('input').attr('size',7);
+ 
+        var count = 60
+                var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
+                function timer() {
+                    count = count - 1;
+ 
+                    if (count <= -1) {
+                        clearInterval(counter);
+                        alert("Times up!")
+                        return;
+                    }
+ 
+                    $("#elapsedtime").html(count);
+                }
+                $('#reset').click(function() {
+                    $('input').val("");
+                    $('input').removeClass("correct");
+                    $('input').removeClass("incorrect");
+                    $('.mark').html("");
+                    $('#countReset').val("10")
+                    $('#percorrect').text(100);
+                    $('#pererror').text(0.00);
+                    $('#errors').text(0);
+                    $('#correct').text(0);
+                });
+ 
+ 
+                $('input').change(function() {
+ 
+                    correct=$(this).data('correct');
+                    response=$(this).val();
+ 
+                    if(correct==response){
+                        $(this).removeClass("incorrect").addClass("correct");
+                        numcorrect = $('#correct').text();
+                        //We multiply by 1 change from type text to number
+                        $('#correct').text(numcorrect*1+1);
+                    }
+                    else
+                    {
+                        $(this).removeClass("correct").addClass("incorrect");
+                        numerrors = $('#errors').text();
+                        $('#errors').text(numerrors*1+1);
+                    }
+ 
+                });
+            });
+</script>
+ 
+        <style type="text/css">
+            .correct { 
+                background:#90EE90;
+            }
+ 
+            .incorrect { 
+                background:#ED9090;
+            }
+
+            #score{
+                margin-left: 5px;
+                margin-top: 5px;
+                margin-bottom: 5px;
+                padding: 10px;
+                border:2px solid gray;
+                background: #00c7cc;
+}
+
+            .button{
+                background-color: #00c7cc;
+            }
+ 
+        </style>
+ 
+    </head>
+ 
+    <body>
+
+        <div class="container">
+        <div id="score">
+            <strong>Correct:</strong> <span class="score" id="correct">0</span>
+            <strong>Errors:</strong>  <span class="score" id="errors">0</span>
+            <strong>Time:</strong> <span class="score" id="elapsedtime">0</span>
+            </div>
+
+<div class="row">
+            <div class="col-xs-10 col-xs-offset-1">
+                <div id="quiz">
+ 
+                    <h3>Answer the following questions (and have fun!):</h3>
+ 
+                    <div class="body">
+        
+                        <div class="row">
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 2^0 \)<input data-correct ="1" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 2^1 \)<input data-correct ="2" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 2^2 \)<input data-correct ="4" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 2^3 \)<input data-correct ="8" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 2^4 \)<input data-correct ="16" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 2^5 \)<input data-correct ="32" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 2^6 \)<input data-correct ="64" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 2^7 \)<input data-correct ="128" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 2^8 \)<input data-correct ="256" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 2^9 \)<input data-correct ="512" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 2^{10} \)<input data-correct ="1024" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 3^0 \)<input data-correct ="1" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 3^1 \)<input data-correct ="3" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 3^2 \)<input data-correct ="9" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 3^3 \)<input data-correct ="27" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 3^4 \)<input data-correct ="81" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 3^5 \)<input data-correct ="243" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 3^6 \)<input data-correct ="729" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 4^0 \)<input data-correct ="1" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 4^2 \)<input data-correct ="16" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 4^3 \)<input data-correct ="64" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 4^4 \)<input data-correct ="256" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 4^5 \)<input data-correct ="1024" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 5^2 \)<input data-correct ="25" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 5^3 \)<input data-correct ="125" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 5^4 \)<input data-correct ="625" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 6^2 \)<input data-correct ="36" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 6^3 \)<input data-correct ="216" type="text"/><span></span></p>
+                            </div>                    
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 7^2 \)<input data-correct ="49" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 7^3 \)<input data-correct ="343" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 8^2 \)<input data-correct ="64" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 8^3 \)<input data-correct ="512" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 9^2 \)<input data-correct ="81" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 9^3 \)<input data-correct ="729" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 10^2 \)<input data-correct ="100" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 10^3 \)<input data-correct ="1000" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 11^2 \)<input data-correct ="121" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 11^3 \)<input data-correct ="1331" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 12^2 \)<input data-correct ="144" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 12^3 \)<input data-correct ="1728" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 13^2 \)<input data-correct ="169" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 14^2 \)<input data-correct ="196" type="text"/><span></span></p>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6 input">
+                                <p>\( 15^2 \)<input data-correct ="225" type="text"/><span></span></p>
+                            </div>
+
+                <div class="row">
+                            <div class="col-xs-12 botton">
+                                <!--<button id="reset">reset</button>-->
+                                <center> <a href="http://saasmath.seattleacademy.org/griffinorser/winter13.hmtl"> <button type="button" id="reset" class="btn btn-primary" autocomplete="off">Reset</button> </a> </center>
+                            </div>
+        
+    </body>
+ 
+</html>
